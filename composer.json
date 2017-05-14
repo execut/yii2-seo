@@ -1,0 +1,24 @@
+{
+  "name": "execut/yii2-seo",
+  "description": "Yii2 eXeCUT seo",
+  "keywords": ["yii2", "seo"],
+  "homepage": "https://github.com/execut/yii2-seo",
+  "type": "library",
+  "license": "Apache-2.0",
+  "support": {
+    "issues": "https://github.com/execut/yii2-seo/issues?state=open",
+    "wiki": "https://github.com/execut/yii2-seo/wiki",
+    "source": "https://github.com/execut/yii2-seo"
+  },
+  "minimum-stability": "stable",
+  "require": {
+    "yiisoft/yii2": "~2.0.6",
+    "execut/yii2-migration": "*",
+    "execut/yii2-base": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "execut\\seo\\": ""
+    }
+  }
+}
