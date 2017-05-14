@@ -18,9 +18,9 @@ class MigrationHelper extends Object
         $this->table->addColumns([
             'title' => $this->table->migration->string(),
             'description' => $this->table->migration->string(),
-            'keywords' => $this->table->migration->string(),
+            'keywords' => $this->table->migration->text(),
             'header' => $this->table->migration->string(),
-            'text' => $this->table->migration->string(),
+            'text' => $this->table->migration->text(),
         ]);
     }
 }

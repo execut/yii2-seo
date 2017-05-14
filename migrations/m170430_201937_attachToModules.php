@@ -9,8 +9,8 @@ class m170430_201937_attachToModules extends Migration
     {
         $helper = new \execut\seo\MigrationHelper();
         $module = \yii::$app->getModule('seo');
-        foreach ($module->attachedModels as $model) {
-            $helper->table = $this->table($model::tableName());
+        foreach ($module->getModels() as $model) {
+            $helper->table = $i->table($model::tableName());
             $helper->attach();
         }
     }

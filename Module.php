@@ -7,16 +7,18 @@ use execut\dependencies\PluginBehavior;
 
 class Module extends \yii\base\Module implements Plugin
 {
-    public $attachedModels = [];
+    public $models = [];
     public function behaviors()
     {
         return [
-            'class' => PluginBehavior::class,
-//            'pluginInterface' => Plugin::class,
+            [
+                'class' => PluginBehavior::class,
+                'pluginInterface' => Plugin::class,
+            ],
         ];
     }
 
     public function getModels() {
-        return $this->getPluginsResults(__FUNCTION__);
+        return array_merge($this->getPluginsResults(__FUNCTION__), $this->models);
     }
 }
