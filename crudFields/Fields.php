@@ -6,7 +6,7 @@ namespace execut\seo\crudFields;
 
 
 use execut\crudFields\fields\Editor;
-class Plugin extends \execut\crudFields\Plugin
+class Fields extends \execut\crudFields\Plugin
 {
     public function getFields() {
 
