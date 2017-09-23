@@ -11,6 +11,8 @@ use yii\helpers\Inflector;
 
 class Keywords extends \execut\crudFields\Plugin
 {
+    public $linkAttribute = null;
+    public $vsModelClass = null;
     public function getFields() {
 
         return [
@@ -42,10 +44,10 @@ class Keywords extends \execut\crudFields\Plugin
                 'multiple' => true
             ],
             'vsSeoKeywords' => [
-                'class' => KeywordVsPage::class,
+                'class' => $this->vsModelClass,
                 'name' => 'vsSeoKeywords',
                 'link' => [
-                    'pages_page_id' => 'id',
+                    $this->linkAttribute => 'id',
                 ],
                 'multiple' => true
             ],

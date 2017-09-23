@@ -55,19 +55,20 @@ class Keyword extends ActiveRecord
                         'attribute' => 'words_count',
                     ],
                 ]),
+                'plugins' => \yii::$app->getModule('seo')->getKeywordFieldsPlugins(),
             ],
         ];
     }
 
-    public function getPages() {
-        return $this->hasMany(Page::className(), [
-            'id' => 'pages_page_id',
-        ])->via('vsPages');
-    }
-
-    public function getVsPages() {
-        return $this->hasMany(KeywordVsPage::class, [
-            'seo_keyword_id' => 'id'
-        ]);
-    }
+//    public function getPages() {
+//        return $this->hasMany(Page::className(), [
+//            'id' => 'pages_page_id',
+//        ])->via('vsPages');
+//    }
+//
+//    public function getVsPages() {
+//        return $this->hasMany(KeywordVsPage::class, [
+//            'seo_keyword_id' => 'id'
+//        ]);
+//    }
 }

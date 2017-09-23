@@ -11,18 +11,16 @@ use execut\seo\Module;
 use execut\yii\Bootstrap;
 use yii\helpers\ArrayHelper;
 
-class Backend extends Bootstrap
+class Backend extends Common
 {
     public function getDefaultDepends() {
         return ArrayHelper::merge(parent::getDefaultDepends(), [
             'bootstrap' => [
-                [
-                    'class' => \execut\actions\Bootstrap::class,
-                ]
-            ],
-            'modules' => [
-                'seo' => [
-                    'class' => Module::class,
+                'crud' => [
+                    'class' => \execut\crud\Bootstrap::class,
+                ],
+                'navigation' => [
+                    'class' => \execut\navigation\Bootstrap::class,
                 ],
             ],
         ]);
