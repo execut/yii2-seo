@@ -6,9 +6,9 @@ namespace execut\seo\migrations;
 
 
 use execut\yii\migration\Table;
-use yii\base\Object;
+use yii\base\BaseObject;
 
-class AddFieldsHelper extends Object
+class AddFieldsHelper extends BaseObject
 {
     /**
      * @var Table

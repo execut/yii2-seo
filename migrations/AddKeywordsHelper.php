@@ -6,10 +6,10 @@ namespace execut\seo\migrations;
 
 
 use execut\yii\migration\MigrationTrait;
-use yii\base\Object;
+use yii\base\BaseObject;
 use yii\helpers\Inflector;
 
-class AddKeywordsHelper extends Object
+class AddKeywordsHelper extends BaseObject
 {
     public $targetTable = null;
     public function attach() {
