@@ -12,7 +12,7 @@ use execut\seo\FieldsAttacher;
 
 class Fields extends \execut\crudFields\Plugin
 {
-    public function getFields() {
+    protected function _getFields() {
         $helper = new FieldsAttacher([
             'tables' => [
                 $this->owner->owner->tableName(),

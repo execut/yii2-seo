@@ -21,7 +21,7 @@ class Page extends BaseObject implements BasePage
      * @return null
      */
     public function getKeywords() {
-        return [];
+        return explode(',', $this->model->keywords);
     }
 
     /**
@@ -45,7 +45,12 @@ class Page extends BaseObject implements BasePage
      * @return null
      */
     public function getHeader() {
-        return $this->model->header;
+        $header = $this->model->header;
+        if (empty($header)) {
+            $header = $this->getName();
+        }
+
+        return $header;
     }
 
     /**
@@ -66,7 +71,12 @@ class Page extends BaseObject implements BasePage
      * @return null
      */
     public function getTitle() {
-        return $this->model->title;
+        $title = $this->model->title;
+        if (empty($title)) {
+            $title = $this->getHeader();
+        }
+
+        return $title;
     }
 
     protected $_parentPage;
