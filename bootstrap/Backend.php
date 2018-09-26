@@ -33,18 +33,6 @@ class Backend extends Common
     {
         parent::bootstrap($app);
         $this->bootstrapNavigation($app);
-        $this->registerTranslations($app);
-    }
-
-    public function registerTranslations($app) {
-        $app->i18n->translations['execut/seo'] = [
-            'class' => 'yii\i18n\PhpMessageSource',
-            'sourceLanguage' => 'en-US',
-            'basePath' => '@vendor/execut/yii2-seo/messages',
-            'fileMap' => [
-                'execut/seo' => 'seo.php',
-            ],
-        ];
     }
 
     /**
