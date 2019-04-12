@@ -7,11 +7,14 @@ namespace execut\seo\crudFields;
 
 use execut\crudFields\fields\Editor;
 use execut\crudFields\fields\Group;
+use execut\crudFields\fields\RawField;
 use execut\crudFields\fields\StringField;
 use execut\seo\FieldsAttacher;
+use yii\helpers\Html;
 
 class Fields extends \execut\crudFields\Plugin
 {
+    public $varsList = [];
     protected function _getFields() {
         $helper = new FieldsAttacher([
             'tables' => [
@@ -20,7 +23,7 @@ class Fields extends \execut\crudFields\Plugin
         ]);
         $helper->up();
 
-        return [
+        $fields = [
             [
                 'class' => Group::class,
                 'module' => 'seo',
@@ -52,5 +55,22 @@ class Fields extends \execut\crudFields\Plugin
                 'attribute' => 'text',
             ],
         ];
+
+
+        if ($this->varsList) {
+            $varsListParts = [];
+            foreach ($this->varsList as $key => $description) {
+                $varsListParts[] = '{' . $key . '} - ' . $description;
+            }
+
+            $fields['VarsList'] = [
+                'class' => RawField::class,
+                'module' => 'seo',
+                'attribute' => 'vars_list',
+                'value' => Html::ul($varsListParts),
+            ];
+        }
+
+        return $fields;
     }
 }
