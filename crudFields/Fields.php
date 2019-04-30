@@ -66,7 +66,7 @@ class Fields extends \execut\crudFields\Plugin
             $fields['VarsList'] = [
                 'class' => RawField::class,
                 'module' => 'seo',
-                'attribute' => 'vars_list',
+//                'attribute' => 'vars_list',
                 'value' => Html::ul($varsListParts),
             ];
         }
