@@ -12,6 +12,7 @@ use execut\crudFields\ModelsHelperTrait;
 use execut\pages\models\Page;
 use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
+use execut\crudFields\fields\Field;
 
 class Keyword extends ActiveRecord
 {
@@ -32,7 +33,7 @@ class Keyword extends ActiveRecord
     public function rules()
     {
         return ArrayHelper::merge($this->getBehavior('fields')->rules(), [
-            ['name', 'unique'],
+            ['name', 'unique', 'on' => Field::SCENARIO_DEFAULT],
         ]);
     }
 

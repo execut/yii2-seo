@@ -89,7 +89,9 @@ class TextReplacer extends BaseObject
             }
         }
 
-        $result = $xpath->getDoc()->saveHTML();
+        $doc = $xpath->getDoc();
+
+        $result = $doc->saveHTML();
 
         $result = str_replace([
             "<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\">\n<html><body>",
@@ -119,7 +121,7 @@ class TextReplacer extends BaseObject
     }
 
     protected function getDomDocumentFromText() {
-        $xpath = new XPath($this->text, true);
+        $xpath = new XPath('<?xml encoding="utf-8" ?>' . $this->text, true);
         return $xpath;
     }
 }

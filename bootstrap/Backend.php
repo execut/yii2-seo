@@ -13,6 +13,7 @@ use yii\helpers\ArrayHelper;
 
 class Backend extends Common
 {
+    public $isBootstrapI18n = true;
     public function getDefaultDepends() {
         return ArrayHelper::merge(parent::getDefaultDepends(), [
             'bootstrap' => [
@@ -40,7 +41,8 @@ class Backend extends Common
      */
     protected function bootstrapNavigation($app)
     {
-        if ($app->user->isGuest) {
+        $module = $app->getModule('seo');
+        if (!(!$app->user->isGuest && $module->adminRole === '@') && !$app->user->can($module->adminRole)) {
             return;
         }
 

@@ -7,6 +7,7 @@ use execut\dependencies\PluginBehavior;
 
 class Module extends \yii\base\Module implements Plugin
 {
+    public $adminRole = '@';
     public function behaviors()
     {
         return [

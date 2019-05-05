@@ -14,7 +14,8 @@
   "require": {
     "yiisoft/yii2": "~2.0.6",
     "execut/yii2-migration": "*",
-    "execut/yii2-base": "*"
+    "execut/yii2-base": "*",
+    "conquer/helpers": "*"
   },
   "autoload": {
     "psr-4": {

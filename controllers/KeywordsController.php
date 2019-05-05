@@ -16,11 +16,11 @@ class KeywordsController extends Controller
     {
         return [
             'access' => [
-                'class' => AccessControl::className(),
+                'class' => AccessControl::class,
                 'rules' => [
                     [
                         'allow' => true,
-                        'roles' => ['@'],
+                        'roles' => [$this->module->adminRole],
                     ],
                 ],
             ],
