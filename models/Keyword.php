@@ -62,7 +62,7 @@ class Keyword extends ActiveRecord
     }
 
 //    public function getPages() {
-//        return $this->hasMany(Page::className(), [
+//        return $this->hasMany(Page::class, [
 //            'id' => 'pages_page_id',
 //        ])->via('vsPages');
 //    }

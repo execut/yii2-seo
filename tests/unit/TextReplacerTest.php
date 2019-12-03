@@ -6,8 +6,9 @@ namespace execut\seo\tests\unit;
 
 
 use execut\seo\TextReplacer;
+use PHPUnit\Framework\TestCase;
 
-class TextReplacerTest extends \PHPUnit_Framework_TestCase
+class TextReplacerTest extends TestCase
 {
     public function testReplaceKeywordToStrong() {
         $replacer = new TextReplacer([

@@ -1,0 +1,6 @@
+namespace: execut\seo
+paths:
+    tests: tests
+    output: tests/_output
+    data: tests/_data
+    support: tests/_support
