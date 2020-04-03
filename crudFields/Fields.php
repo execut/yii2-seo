@@ -5,6 +5,9 @@
 namespace execut\seo\crudFields;
 
 
+use execut\crudFields\fields\detailViewField\addon\Help;
+use execut\crudFields\fields\detailViewField\addon\help\text\Simple;
+use execut\crudFields\fields\detailViewField\addon\help\text\VarsList;
 use execut\crudFields\fields\Editor;
 use execut\crudFields\fields\Group;
 use execut\crudFields\fields\RawField;
@@ -16,6 +19,23 @@ class Fields extends \execut\crudFields\Plugin
 {
     public $varsList = [];
     protected function _getFields() {
+        $textField = new Editor([
+            'module' => 'seo',
+            'attribute' => 'text',
+        ]);
+
+        if ($this->varsList) {
+            $varsList = [];
+            foreach ($this->varsList as $key => $description) {
+                $varsList['{' . $key . '}'] = $description;
+            }
+
+            $detailViewField = $textField->getDetailViewField();
+            $textHelpAddon = new VarsList('', $varsList);
+            $helpAddon = new Help($textHelpAddon);
+            $detailViewField->setAddon($helpAddon);
+        }
+
         $fields = [
             [
                 'class' => Group::class,
@@ -42,27 +62,8 @@ class Fields extends \execut\crudFields\Plugin
                 'module' => 'seo',
                 'attribute' => 'keywords',
             ],
-            [
-                'module' => 'seo',
-                'class' => Editor::class,
-                'attribute' => 'text',
-            ],
+            'text' => $textField,
         ];
-
-
-        if ($this->varsList) {
-            $varsListParts = [];
-            foreach ($this->varsList as $key => $description) {
-                $varsListParts[] = '{' . $key . '} - ' . $description;
-            }
-
-            $fields['VarsList'] = [
-                'class' => RawField::class,
-                'module' => 'seo',
-//                'attribute' => 'vars_list',
-                'value' => Html::ul($varsListParts),
-            ];
-        }
 
         return $fields;
     }
