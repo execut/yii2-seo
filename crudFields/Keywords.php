@@ -16,7 +16,7 @@ class Keywords extends \execut\crudFields\Plugin
     public $vsModelClass = null;
     public function getFields() {
         return [
-            [
+            'seoKeywords' => [
                 'class' => HasManyMultipleInput::class,
                 'attribute' => 'seoKeywords',
                 'relation' => 'seoKeywords',

@@ -21,6 +21,7 @@ class AddFieldsHelper extends BaseObject
             'keywords' => $this->table->migration->text(),
             'header' => $this->table->migration->string(),
             'text' => $this->table->migration->text(),
+            'no_index' => $this->table->migration->boolean(),
         ]);
     }
 }
