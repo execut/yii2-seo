@@ -90,4 +90,14 @@ class Page extends BaseObject implements BasePage
     public function setParentPage($page) {
         $this->_parentPage = $page;
     }
+
+    protected $noIndex = false;
+    public function getNoIndex() {
+        return $this->noIndex;
+    }
+
+    public function setNoIndex(bool $noIndex) {
+        $this->noIndex = $noIndex;
+        return $this;
+    }
 }
