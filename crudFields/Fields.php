@@ -19,6 +19,7 @@ use yii\helpers\Html;
 class Fields extends \execut\crudFields\Plugin
 {
     public $varsList = [];
+    public $isHasNoIndex = true;
     protected function _getFields() {
         $textField = new Editor([
             'module' => 'seo',
@@ -64,12 +65,14 @@ class Fields extends \execut\crudFields\Plugin
                 'attribute' => 'keywords',
             ],
             'text' => $textField,
-            'no_index' => [
+        ];
+        if ($this->isHasNoIndex) {
+            $fields['no_index'] = [
                 'class' => Boolean::class,
                 'module' => 'seo',
                 'attribute' => 'no_index',
-            ],
-        ];
+            ];
+        }
 
         return $fields;
     }
