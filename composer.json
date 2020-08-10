@@ -3,7 +3,7 @@
   "description": "Yii2 eXeCUT seo",
   "keywords": ["yii2", "seo"],
   "homepage": "https://github.com/execut/yii2-seo",
-  "type": "library",
+  "type": "yii2-extension",
   "license": "Apache-2.0",
   "support": {
     "issues": "https://github.com/execut/yii2-seo/issues?state=open",
