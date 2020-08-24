@@ -100,4 +100,9 @@ class Page extends BaseObject implements BasePage
         $this->noIndex = $noIndex;
         return $this;
     }
+
+    public function getTime()
+    {
+        return $this->model->getLastTime();
+    }
 }
