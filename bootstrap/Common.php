@@ -12,7 +12,7 @@ use execut\yii\Bootstrap;
 
 class Common extends Bootstrap
 {
-    protected $isBootstrapI18n = false;
+    protected $isBootstrapI18n = true;
     public $_defaultDepends = [
         'modules' => [
             'seo' => [
